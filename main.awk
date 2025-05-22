@@ -51,7 +51,6 @@ function update_board(Service,     x){
     draw_board(x)
 }
 function quit(Service){
-    print("quit")
     x = command("quit\n", Service)
     close(Service)
 }
@@ -63,18 +62,7 @@ function draw_board(t){
         N = split(x, A, " ")
         s = s " \\( "
         for(i=1; i<= N; i++){
-            if(A[i] == "."){
-                s = s " images/empty.MIFF "
-            }
-            if(A[i] == "+"){
-                s = s " images/star.MIFF "
-            }
-            if(A[i] == "O"){
-                s = s " images/white.MIFF "
-            }
-            if(A[i] == "X"){
-                s = s " images/black.MIFF "
-            }
+            s = s Symbol[A[i]]
         }
         s = s " +append \\) "
     }
@@ -119,6 +107,10 @@ function mainloop(Service,      file, x, y){
     mainloop(Service)
 }
 BEGIN{
+    Symbol["."] = " images/empty.MIFF "
+    Symbol["+"] = " images/star.MIFF "
+    Symbol["O"] = " images/white.MIFF "
+    Symbol["X"] = " images/black.MIFF "
     Letters =  "ABCDEFGHJKLMNOPQRST"
     recent_move_file = "recent_move"
     handicap = 5
