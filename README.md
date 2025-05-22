@@ -2,6 +2,8 @@ Go Board
 ========
 this is a gui to play go with the gnugo ai.
 
+[![Video Title](https://img.youtube.com/vi/VXvJqaTiypQ/0.jpg)](https://www.youtube.com/watch?v=VXvJqaTiypQ)
+
 dependencies
 ============
 make
