@@ -2,7 +2,7 @@ function num2letter(x){
     return(substr(Letters, x, 1))
 }
 function letter2number(x){
-    match(x, Letters)
+    match(Letters, x)
     return(RSTART)
 }
 function new_game(handicap){
@@ -108,7 +108,6 @@ function mainloop(Service,      file, x, y){
         } else {
             x = int(A[1] / 39)+1
             y = int(A[2] / 39)+1
-            print("clicked at " x " " y)
             play2(x, y)
         }
         close(file)
