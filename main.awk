@@ -89,6 +89,10 @@ function mainloop(Service,      file, x, y){
             close(file)
             system("rm " file)
             return(0)
+        } else if(A[1] == "score"){
+            s = command("estimate_score\n", Service)
+            s = substr(s, 2, 7)
+            system("convert board.png -fill White -pointsize 60 -gravity center -stroke Black -strokewidth 2 -annotate +350+0 \"" s "\" board.png")
         } else if(A[1] == "undo"){
             command("undo\n", Service)
             command("undo\n", Service)

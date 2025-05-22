@@ -1,7 +1,20 @@
 #include "raylib.h"
 #include "stdio.h"
+
+void write_to(char * x)
+{
+  FILE *file = fopen("coordinates", "a");
+  if (file == NULL) {
+    perror("Error opening file");
+    return;
+  }
+  fprintf(file, x);
+  fclose(file);
+}
+
 int main(void)
 {
+  char s[64];
     const int screenWidth = 741;
     const int screenHeight = 741;
     SetTraceLogLevel(7);
@@ -10,26 +23,13 @@ int main(void)
     Texture2D texture = LoadTexture("board.png");
     SetTargetFPS(10);
     while (!WindowShouldClose()){    // Detect window close button or ESC key
-      if (IsKeyPressed(KEY_U))
-        {
-          FILE *file = fopen("coordinates", "a");
-          if (file == NULL) {
-            perror("Error opening file");
-            return 1;
-          }
-          fprintf(file, "undo\n");
-          fclose(file);
-        }
+      if (IsKeyPressed(KEY_S)){write_to("score\n");}
+      if (IsKeyPressed(KEY_U)){write_to("undo\n");}
       ballPosition = GetMousePosition();
       if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
         {
-          FILE *file = fopen("coordinates", "a");
-          if (file == NULL) {
-            perror("Error opening file");
-            return 1;
-          }
-          fprintf(file,"%f, %f\n", ballPosition.x, ballPosition.y);
-          fclose(file);
+          sprintf(s, "%f, %f", ballPosition.x, ballPosition.y);
+          write_to(s);
         }
       BeginDrawing();
       UnloadTexture(texture);
@@ -38,13 +38,7 @@ int main(void)
       EndDrawing();
     }
     //if the gui gets the kill signal, we need to propagate that to the rest of the program.
-    FILE *file = fopen("coordinates", "a");
-    if (file == NULL) {
-      perror("Error opening file");
-      return 1;
-    }
-    fprintf(file, "quit\n");
-    fclose(file);
+    write_to("quit\n");
     CloseWindow();        // Close window and OpenGL context
     return 0;
 }

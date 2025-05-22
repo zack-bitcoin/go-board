@@ -24,14 +24,14 @@ turn it on
 controls
 =========
 
-click where you want to play. use the U key to undo. ESC turns it off.
+click where you want to play. use the U key to undo. use the S key to estimate the score. ESC turns it off.
 
 files explained
 ==================
 
-board.c (50 lines)
+board.c (42 lines)
 this program uses raylib to display a png of the game board, and it waits for the user to click where they want to play. When you click, it writes the coordinates to a file.
 This is the part that gets compiled by make.
 
-main.awk (122 lines)
+main.awk (126 lines)
 this is the main program. It creates the png of the game board and talks to the gnugo server.
