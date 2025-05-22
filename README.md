@@ -1,6 +1,7 @@
 Go Board
 ========
 this is a gui to play go with the gnugo ai.
+[Check it out on youtube](https://youtu.be/VXvJqaTiypQ)
 
 [![Video Title](https://img.youtube.com/vi/VXvJqaTiypQ/0.jpg)](https://www.youtube.com/watch?v=VXvJqaTiypQ)
 
