@@ -1,0 +1,14 @@
+*~
+.#*
+\#*
+board
+*.o
+board.MIFF
+board.png
+recent_move
+unused/*
+coordinates
+*.png
+
+
+
