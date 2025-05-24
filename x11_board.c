@@ -99,6 +99,7 @@ int main(int argc, char *argv[]) {
           }
         else if (num_ready_fds == 0){
           read_png_file("board.png", &image_data, &width, &height);
+          XDestroyImage(ximage);  // Frees image_data too
           ximage = XCreateImage(dpy, visual, depth, ZPixmap, 0, (char *)image_data, width, height, 32, 0);
           XPutImage(dpy, win, DefaultGC(dpy, screen), ximage, 0, 0, 0, 0, width, height);
         } else
