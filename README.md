@@ -7,15 +7,16 @@ this is a gui to play go with the gnugo ai.
 
 dependencies
 ============
-make
 ImageMagick
 gcc
-raylib
 gnugo
 
 installation
 ========
-make
+
+`sh x11_compile.sh`
+
+or to use the raylib version `make`
 
 turn it on
 =======
@@ -31,7 +32,9 @@ files explained
 
 board.c (42 lines)
 this program uses raylib to display a png of the game board, and it waits for the user to click where they want to play. When you click, it writes the coordinates to a file.
-This is the part that gets compiled by make.
+
+x11_board.c (114 lines)
+this is a rewrite of board.c, but using x11 instead of raylib.
 
 main.awk (126 lines)
 this is the main program. It creates the png of the game board and talks to the gnugo server.

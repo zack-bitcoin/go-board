@@ -1,6 +1,5 @@
 #include "raylib.h"
 #include "stdio.h"
-
 void write_to(char * x)
 {
   FILE *file = fopen("coordinates", "a");
@@ -11,7 +10,6 @@ void write_to(char * x)
   fprintf(file, x);
   fclose(file);
 }
-
 int main(void)
 {
   char s[64];

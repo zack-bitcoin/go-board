@@ -6,9 +6,9 @@ function letter2number(x){
     return(RSTART)
 }
 function new_game(handicap){
-    system("(gnugo --mode gtp --gtp-listen 8070)&")
-    system("sleep 0.01")
-    Service = "nc 127.0.0.1 8070"
+    system("(gnugo --mode gtp --gtp-listen 8074)&")
+    system("sleep 0.1")
+    Service = "nc 127.0.0.1 8074"
     command("fixed_handicap " handicap, Service)
     white_play(Service)
     return(Service)
@@ -100,6 +100,7 @@ function mainloop(Service,      file, x, y){
         } else {
             x = int(A[1] / 39)+1
             y = int(A[2] / 39)+1
+            print("played at " x " " y)
             play2(x, y)
         }
         close(file)
